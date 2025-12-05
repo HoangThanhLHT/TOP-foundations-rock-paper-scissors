@@ -42,20 +42,29 @@ function playGame() {
             computerScore++
         };
 
-
         const result = document.createElement("p");
         result.textContent = `${announcement}! You (${humanChoice}) > ${humanScore} : ${computerScore} < Computer (${computerChoice})`;
         results.appendChild(result)
     };
+
+    function announceWinner(name) {
+        const winner = document.createElement("p");
+        winner.textContent = `The winner is ${name}!`;
+        results.appendChild(winner);
+    }
 
     const selections = document.querySelectorAll("button");
 
     selections.forEach((selection) => {
         selection.addEventListener("click", () => {
             playRound(selection.textContent, getComputerChoice());
+            if (humanScore == 5 || computerScore == 5) {
+                (humanScore == 5) ? announceWinner("You") : announceWinner("Computer");
+                humanScore = 0;
+                computerScore = 0;
+            };
         });
     });
 };
-
 
 playGame();
