@@ -14,10 +14,11 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    const results = document.querySelector("div");
+
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
-        console.log(humanChoice);
-        
+
         let announcement = "win";
 
         if (humanChoice == computerChoice) {
@@ -41,15 +42,16 @@ function playGame() {
             computerScore++
         };
 
-        console.log(`You (${humanChoice}) > ${announcement}! < Computer (${computerChoice})`);
-        console.log(`Your score: ${humanScore} --------------- Computer score: ${computerScore}`);
+
+        const result = document.createElement("p");
+        result.textContent = `${announcement}! You (${humanChoice}) > ${humanScore} : ${computerScore} < Computer (${computerChoice})`;
+        results.appendChild(result)
     };
 
     const selections = document.querySelectorAll("button");
 
     selections.forEach((selection) => {
-        selection.addEventListener("click", (e) => {
-            console.log(e);
+        selection.addEventListener("click", () => {
             playRound(selection.textContent, getComputerChoice());
         });
     });
