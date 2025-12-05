@@ -51,21 +51,7 @@ function playGame() {
         console.log(`Your score: ${humanScore} --------------- Computer score: ${computerScore}`)
     }
 
-    // play 5 rounds
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
 
-    // declares a winner
-    console.log("---------------------")
-    console.log("After 5 rounds")
-    if (humanScore > computerScore) {
-        console.log("YOU WIN!")
-    } else {
-        console.log("YOU LOSE!")
-    };
 }
 
 playGame()
